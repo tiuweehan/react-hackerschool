@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import './index.css';
 import Home from './home/Home';
 import Games from './games/Games';
@@ -7,10 +8,16 @@ import Games from './games/Games';
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Home />
-        <Games />
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/games">
+            <Games />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     )
   }
 }
